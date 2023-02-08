@@ -24,7 +24,7 @@ export class LoginFormComponent {
   errorMsg: string | null;
 
   loginUser = () => {
-    this.errorMsg = null;
+    // let newErrorMsg: string | null = null;
     const username = this.loginForm.get('username')?.value;
     const password = this.loginForm.get('password')?.value;
     if (!username || username.length === 0) {
@@ -44,5 +44,6 @@ export class LoginFormComponent {
         return;
       }
     });
+    this.errorMsg = null;
   };
 }

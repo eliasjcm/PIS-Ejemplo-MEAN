@@ -1,10 +1,6 @@
-<div class="login">
+<div class="login" *ngIf="currentUser === null">
   <h1>Log In</h1>
-  <form
-    *ngIf="currentUser === null"
-    [formGroup]="loginForm"
-    (ngSubmit)="loginUser()"
-  >
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
     <div class="login-field">
       <label for="username">Username</label>
       <input type="username" formControlName="username" id="username" />
@@ -15,9 +11,10 @@
       <input type="password" formControlName="password" id="password" />
     </div>
     <button type="submit">Login</button>
+    <a href="wikipedia.com" class="sign-up-link">or, sign up</a>
+    <p *ngIf="errorMsg !== null" class="error-msg">{{ errorMsg }}</p>
   </form>
-  <p *ngIf="currentUser !== null">
-    Welcome <b>{{ currentUser.name }}</b>
-  </p>
-  <p *ngIf="errorMsg !== null" class="error-msg">{{ errorMsg }}</p>
+</div>
+<div class="welcome-box" *ngIf="currentUser !== null">
+  <h1>Welcome, {{ currentUser.name }}!</h1>
 </div>
