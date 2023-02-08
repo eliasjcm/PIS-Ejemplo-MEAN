@@ -4,11 +4,9 @@ var cors = require("cors");
 const app = express();
 
 //mongodb connection
-mongoose.set('strictQuery', false);
+mongoose.set("strictQuery", false);
 mongoose
-  .connect(
-    "mongodb://127.0.0.1:27017/MEAN_Example"
-  )
+  .connect("mongodb://127.0.0.1:27017/MEAN_Example")
   .then((x) => console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`))
   .catch((error) => console.log(error));
 
@@ -17,7 +15,7 @@ const userRoutes = require("./routes/UserRoute");
 app.use(express.json());
 app.use("/api", userRoutes);
 
-app.use(cors({origin: "*",}));
+app.use(cors({ origin: "*" }));
 
 // Port
 const port = process.env.PORT || 9000;

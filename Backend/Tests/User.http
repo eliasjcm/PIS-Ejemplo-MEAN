@@ -2,12 +2,16 @@
 POST http://localhost:9000/api/user/create HTTP/1.1
 Content-Type: application/json
 
-{"name":"Juanin","username":"admi2n@example.com", "password":"000000000"}
+{"name":"Juanin","username":"admin23", "password":"0"}
 
 ###
-GET  http://localhost:9000/api/user/read/admin@example.com HTTP/1.1
+GET  http://localhost:9000/api/user/getUser/admin@example.com HTTP/1.1
 Content-Type: application/json
 
 ###
-GET  http://localhost:9000/api/user/check/admin@example.com HTTP/1.1
+GET  http://localhost:9000/api/user/getUser/admin@example.com HTTP/1.1
+Content-Type: application/json
+
+###
+GET  http://localhost:9000/api/user/login?username=admin23&password=0 HTTP/1.1
 Content-Type: application/json

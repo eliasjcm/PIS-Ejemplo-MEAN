@@ -27,11 +27,24 @@ userRoute.route("/user/check/:username").get((req, res) => {
 });
 
 // Get User
-userRoute.route("/user/read/:username").get((req, res) => {
+userRoute.route("/user/getUser/:username").get((req, res) => {
   UserModel.findOne({ username: req.params.username }, (error, data) => {
     if (error) {
       return next(error);
     } else {
+      res.json(data);
+    }
+  });
+});
+
+// Login User
+userRoute.route("/user/login").get((req, res) => {
+  UserModel.findOne({ username: req.query.username, password:req.query.password }, (error, data) => {
+    if (error) {
+      console.log(error);
+      return next(error);
+    } else {
+      console.log(data);
       res.json(data);
     }
   });

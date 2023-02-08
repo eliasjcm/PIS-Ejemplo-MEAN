@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ApiService } from '../service/api.service';
 import { User } from '../User';
+import { Nullable } from '../types';
 
 @Component({
   selector: 'app-login-form',
@@ -38,6 +39,10 @@ export class LoginFormComponent {
     this.api.getUser(username || '', password || '').subscribe((data) => {
       console.log(data);
       this.currentUser = data.body;
+      if (!this.currentUser) {
+        this.errorMsg = 'Invalid username or password';
+        return;
+      }
     });
   };
 }
