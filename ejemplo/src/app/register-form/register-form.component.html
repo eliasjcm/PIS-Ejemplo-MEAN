@@ -1,1 +1,23 @@
-<p>register-form works! O no</p>
+<div class="register">
+  <h1>Register</h1>
+  <form
+    *ngIf="currentUser === null"
+    [formGroup]="registerForm"
+    (ngSubmit)="registerUser()"
+  >
+    <div class="register-field">
+      <label for="name">Name</label>
+      <input type="name" formControlName="name" id="name" />
+    </div>
+    <div class="register-field">
+      <label for="username">Username</label>
+      <input type="username" formControlName="username" id="username" />
+    </div>
+    <div class="register-field">
+      <label for="password">Password</label>
+      <input type="password" formControlName="password" id="password" />
+    </div>
+    <button type="submit">Register</button>
+    <p *ngIf="errorMsg !== null" class="error-msg">{{ errorMsg }}</p>
+  </form>
+</div>

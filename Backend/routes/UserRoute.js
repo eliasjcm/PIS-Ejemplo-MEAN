@@ -16,8 +16,8 @@ userRoute.route("/user/create").post((req, res, next) => {
 });
 
 // Check if user exists
-userRoute.route("/user/check/:username").get((req, res) => {
-  UserModel.exists({ username: req.params.username }, function (err, doc) {
+userRoute.route("/user/check").get((req, res) => {
+  UserModel.exists({ username: req.query.username }, function (err, doc) {
     if (err) {
       console.log(err);
     } else {

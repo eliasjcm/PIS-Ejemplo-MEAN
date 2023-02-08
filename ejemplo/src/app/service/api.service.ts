@@ -28,9 +28,18 @@ export class ApiService {
     );
   }
 
-  // createUser(user: User): Observable<HttpResponse<User>> {
-  //   return this.http.post<User>(`http://localhost:9000/api/user/login?username=admi23&password=0`, user, {
-  //     observe: 'response',
-  //   });
-  // }
+  createUser(user: User): Observable<HttpResponse<User>> {
+    return this.http.post<User>(`/api/user/create`, user, {
+      observe: 'response',
+    });
+  }
+
+  checkUser(username: string): Observable<HttpResponse<Nullable<User>>> {
+    return this.http.get<Nullable<User>>(
+      `/api/user/check?username=${username}`,
+      {
+        observe: 'response',
+      }
+    );
+  }
 }
