@@ -1,13 +1,23 @@
-<form
-  *ngIf="currentUser === null"
-  [formGroup]="loginForm"
-  (ngSubmit)="loginUser()"
->
-  <label for="username">Username</label>
-  <input type="username" formControlName="username" id="username" />
-  <label for="password">Password</label>
-  <input type="password" formControlName="password" id="password" />
-  <button type="submit">Login</button>
-</form>
-<p *ngIf="currentUser !== null">Welcome <b>{{ currentUser.name }}</b></p>
-<p *ngIf="errorMsg !== null" class="error-msg">{{ errorMsg }}</p>
+<div class="login">
+  <h1>Log In</h1>
+  <form
+    *ngIf="currentUser === null"
+    [formGroup]="loginForm"
+    (ngSubmit)="loginUser()"
+  >
+    <div class="login-field">
+      <label for="username">Username</label>
+      <input type="username" formControlName="username" id="username" />
+    </div>
+    <div class="login-field">
+      <label for="password">Password</label>
+
+      <input type="password" formControlName="password" id="password" />
+    </div>
+    <button type="submit">Login</button>
+  </form>
+  <p *ngIf="currentUser !== null">
+    Welcome <b>{{ currentUser.name }}</b>
+  </p>
+  <p *ngIf="errorMsg !== null" class="error-msg">{{ errorMsg }}</p>
+</div>

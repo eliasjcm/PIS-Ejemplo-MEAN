@@ -21,7 +21,7 @@ export class ApiService {
 
   getUser(username: string, password: string): Observable<HttpResponse<User>> {
     return this.http.get<User>(
-      `http://localhost:9000/api/user/login?username=${username}&password=${password}`,
+      `/api/user/login?username=${username}&password=${password}`,
       {
         observe: 'response',
       }

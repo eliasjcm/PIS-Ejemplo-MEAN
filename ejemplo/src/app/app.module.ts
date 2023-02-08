@@ -7,10 +7,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CounterComponent } from './counter/counter.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
 
 
 @NgModule({
-  declarations: [AppComponent, CounterComponent, LoginFormComponent],
+  declarations: [AppComponent, CounterComponent, LoginFormComponent, RegisterFormComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
