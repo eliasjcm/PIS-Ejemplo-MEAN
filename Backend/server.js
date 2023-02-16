@@ -15,6 +15,13 @@ const userRoutes = require("./routes/UserRoute");
 app.use(express.json());
 app.use("/api", userRoutes);
 
+
+// Angular build
+app.use(express.static("ejemplo"));
+app.use('/*', function(req, res) {
+  res.sendFile('ejemplo/index.html');
+});
+
 app.use(cors({ origin: "*" }));
 
 // Port
